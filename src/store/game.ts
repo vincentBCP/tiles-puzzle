@@ -95,7 +95,6 @@ const getTiles = () => {
 
   return shuffle(tiles);
 
-  // return orderBy(tiles, "location");
   // const temp = { ...tiles[TILES_COUNT - 1] }; // 15
   // tiles[TILES_COUNT - 1] = { ...tiles[TILES_COUNT - 2] };
   // tiles[TILES_COUNT - 2] = temp;
