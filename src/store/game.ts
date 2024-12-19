@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import cryptoRandomString from "crypto-random-string";
-import { orderBy } from "lodash";
 
 const COLUMNS = 4;
 const ROWS = 4;
@@ -33,21 +32,25 @@ const shuffle = (tiles: ITile[]) => {
       // top
       case 1:
         destIndex = srcIndex - COLUMNS;
+        if (destIndex < 0) continue;
         break;
       // right
       case 2:
         destIndex = srcIndex + 1;
+        if (Math.floor(destIndex / COLUMNS) !== Math.floor(srcIndex / COLUMNS))
+          continue;
         break;
       // bottom
       case 3:
         destIndex = srcIndex + COLUMNS;
+        if (destIndex >= TILES_COUNT - 1) continue;
         break;
       // left
       default:
         destIndex = srcIndex - 1;
+        if (Math.floor(destIndex / COLUMNS) !== Math.floor(srcIndex / COLUMNS))
+          continue;
     }
-
-    if (destIndex < 0 || destIndex >= TILES_COUNT - 1) continue;
 
     switchTiles(tiles, srcIndex, destIndex);
   }
