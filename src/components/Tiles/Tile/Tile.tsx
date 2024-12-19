@@ -1,3 +1,4 @@
+import temp from "../../../assets/_.jpeg";
 import useGameStore, { ITile } from "../../../store/game";
 
 const Tile = ({ id, location, position, void: black }: Readonly<ITile>) => {
@@ -20,7 +21,7 @@ const Tile = ({ id, location, position, void: black }: Readonly<ITile>) => {
         black
           ? { backgroundColor: "black" }
           : {
-              backgroundImage: "url('./src/assets/_.jpeg')",
+              backgroundImage: `url('${temp}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "500px 500px",
               backgroundPosition: `${position.x}px ${position.y}px`,
