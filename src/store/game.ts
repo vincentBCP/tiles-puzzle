@@ -108,7 +108,7 @@ const getTiles = () => {
 const isGameFinised = (tiles: ITile[]) => {
   const str = Array(tiles.length)
     .fill(0)
-    .map((v, index) => index.toString())
+    .map((v, index) => (v + index).toString())
     .join("");
   const str2 = tiles.map((tile) => tile.index.toString()).join("");
 
